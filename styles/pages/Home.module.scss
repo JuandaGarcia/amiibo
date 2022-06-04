@@ -1,0 +1,15 @@
+.home {
+	&__products {
+		margin: 0 auto;
+		padding: var(--space-3);
+		max-width: var(--page-max-width);
+		&__list {
+			display: grid;
+			grid-gap: var(--space-1);
+			grid-template-columns: repeat(auto-fill, minmax(20.625rem, 1fr));
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+	}
+}

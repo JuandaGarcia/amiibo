@@ -1,0 +1,42 @@
+html,
+body {
+	padding: 0;
+	margin: 0;
+	font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+:root {
+	/* Sizes */
+	--space-1: 1.5rem;
+	--space-2: 0.75rem;
+	--space-3: 4rem;
+	--page-max-width: calc(1392px + calc(var(--space-3) * 2));
+	/* Colors */
+	--color-1: #42ffd2;
+	--color-2: #ffffff;
+	--color-3: #cccccc;
+	--color-4: #000000;
+}
+
+::selection {
+	background: var(--color-1);
+	color: var(--color-4);
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: var(--color-1);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+* {
+	box-sizing: border-box;
+}

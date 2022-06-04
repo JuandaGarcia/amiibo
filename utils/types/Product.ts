@@ -6,4 +6,5 @@ export type Product = {
 	amiiboSeries: string
 	gameSeries: string
 	type: string
+	price: number
 }
