@@ -1,22 +1,23 @@
 .product_card {
 	position: relative;
-	border-radius: 0.5rem;
+	border-radius: var(--radius-1);
 	overflow: hidden;
+	&:hover {
+		.product_card__content__card {
+			transform: rotateY(30deg) rotateX(30deg);
+		}
+		.product_card__content__figure {
+			transform: scale(1.2);
+		}
+	}
 	&__content {
-		height: 22.8125rem;
+		height: 25rem;
+		padding-bottom: 5rem;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		position: relative;
 		background-image: linear-gradient(to right, #434343 0%, black 100%);
-		&:hover {
-			.product_card__content__card {
-				transform: rotateY(30deg) rotateX(30deg);
-			}
-			.product_card__content__figure {
-				transform: scale(1.2);
-			}
-		}
 		&__card,
 		&__figure {
 			transition: 0.5s;
@@ -26,13 +27,14 @@
 			justify-content: space-between;
 			align-items: center;
 			width: 100%;
-			height: 125px;
+			/* height: 125px; */
 			padding: var(--space-1);
+			padding-bottom: calc(var(--btn-height) + calc(var(--space-1) * 2));
 			position: absolute;
 			bottom: 0;
 			left: 0;
-			background: rgba(40, 26, 23, 0.64);
-			backdrop-filter: blur(12px);
+			background: var(--background-blur-color);
+			backdrop-filter: var(--background-blur-backdrop-filter);
 			&__item {
 				display: grid;
 				gap: var(--space-2);
@@ -66,6 +68,8 @@
 	}
 	&__button {
 		position: absolute;
-		bottom: 0;
+		bottom: var(--space-1);
+		left: var(--space-1);
+		width: calc(100% - calc(var(--space-1) * 2));
 	}
 }

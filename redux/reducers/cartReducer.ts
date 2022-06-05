@@ -17,15 +17,15 @@ const initialState: CartState = {
 const cartController = (
 	products: ProductCart[],
 	type: 'increase' | 'decrease' | 'delete',
-	product: Product
+	payload: Product
 ) => {
 	if (type === 'delete') {
-		return products.filter(item => item.id !== product.id)
+		return products.filter(item => item.id !== payload.id)
 	} else {
 		const newArray = products.map(item => {
-			if (item.id === product.id) {
+			if (item.id === payload.id) {
 				return {
-					...product,
+					...payload,
 					quantity: type === 'increase' ? item.quantity + 1 : item.quantity - 1,
 				}
 			} else {
@@ -52,9 +52,16 @@ export const { reducer: cartReducer, actions } = createSlice({
 	initialState,
 	reducers: {
 		add_to_cart: (state, { payload }: PayloadAction<Product>) => {
-			const newArray = cartController(state.products, 'increase', payload)
-			state.products = newArray
-			state.total = getTotal(newArray)
+			const index = state.products.findIndex(item => item.id === payload.id)
+			if (index !== -1) {
+				const newArray = cartController(state.products, 'increase', payload)
+				state.products = newArray
+				state.total = getTotal(newArray)
+			} else {
+				const newProducts = [...state.products, { ...payload, quantity: 1 }]
+				state.products = newProducts
+				state.total = getTotal(newProducts)
+			}
 		},
 		remove_from_cart: (state, { payload }: PayloadAction<Product>) => {
 			const newArray = cartController(state.products, 'decrease', payload)

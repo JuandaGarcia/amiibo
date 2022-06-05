@@ -1,0 +1,32 @@
+@mixin button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--btn-height);
+	padding: 0 var(--space-2);
+	color: var(--color-4);
+	border-radius: var(--radius-1);
+	font-weight: 500;
+	transition: 0.2s;
+	&:active {
+		transform: scale(0.9);
+	}
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		transform: none !important;
+	}
+	&:focus-visible {
+		outline: none;
+		box-shadow: 0 0 0 3px rgba(84, 102, 249, 0.5);
+	}
+}
+
+.button_primary {
+	background-color: var(--color-1);
+	@include button;
+}
+.button_secondary {
+	background-color: var(--color-5);
+	@include button;
+}

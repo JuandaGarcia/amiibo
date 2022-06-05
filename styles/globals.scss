@@ -4,6 +4,7 @@ body {
 	margin: 0;
 	font-family: 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
 		Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background-color: var(--color-5);
 }
 
 :root {
@@ -11,12 +12,18 @@ body {
 	--space-1: 1.5rem;
 	--space-2: 0.75rem;
 	--space-3: 4rem;
+	--radius-1: 0.5rem;
+	--btn-height: 2.5rem;
 	--page-max-width: calc(1392px + calc(var(--space-3) * 2));
 	/* Colors */
 	--color-1: #42ffd2;
 	--color-2: #ffffff;
 	--color-3: #cccccc;
 	--color-4: #000000;
+	--color-5: #eeeeee;
+	--background-blur-color: rgba(40, 26, 23, 0.64);
+	/* Properties */
+	--background-blur-backdrop-filter: blur(12px);
 }
 
 ::selection {
@@ -29,14 +36,28 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--color-1);
+	background: var(--color-4);
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
 }
 
 * {
 	box-sizing: border-box;
+}
+
+label {
+	-webkit-tap-highlight-color: transparent;
+}
+
+button {
+	user-select: none;
+	cursor: pointer;
+	border: none;
+	font-size: inherit;
+	-webkit-tap-highlight-color: transparent;
+	font-family: inherit;
 }

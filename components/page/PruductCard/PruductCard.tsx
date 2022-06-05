@@ -3,12 +3,15 @@ import Link from 'next/link'
 import { Product } from 'utils/types/Product'
 import { RiMoneyDollarCircleFill } from 'react-icons/ri'
 import s from './PruductCard.module.scss'
+import Button from 'components/ui/Button/Button'
+import useCart from 'hooks/useCart'
 
 type Props = {
 	product: Product
 }
 const PruductCard = ({ product }: Props) => {
 	const { name, image, price, amiiboSeries, type } = product
+	const { addToCart } = useCart()
 
 	return (
 		<li className={s.product_card}>
@@ -41,7 +44,7 @@ const PruductCard = ({ product }: Props) => {
 						</div>
 						<div className={s.product_card__content__info__item}>
 							<span className={s.product_card__content__info__item__price}>
-								Precio
+								Price
 							</span>
 							<span className={s.product_card__content__info__item__text}>
 								<RiMoneyDollarCircleFill color="var(--color-1)" size={25} />
@@ -51,6 +54,12 @@ const PruductCard = ({ product }: Props) => {
 					</div>
 				</a>
 			</Link>
+			<Button
+				className={s.product_card__button}
+				onClick={() => addToCart(product, true)}
+			>
+				Add to Cart
+			</Button>
 		</li>
 	)
 }
