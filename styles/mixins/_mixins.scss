@@ -1,0 +1,10 @@
+@import './responsive';
+
+@mixin page-container {
+	margin: 0 auto;
+	padding: 0 var(--space-4);
+	max-width: var(--page-max-width);
+	@include responsive {
+		padding: 0 var(--space-3);
+	}
+}

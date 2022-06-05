@@ -1,0 +1,61 @@
+@import '../../../styles/mixins/mixins';
+@import '../../../styles/mixins/responsive';
+
+.header {
+	display: flex;
+	align-items: center;
+	margin-top: 1.125rem;
+	padding-top: 1.125rem;
+	padding-bottom: 1.125rem;
+	background-color: rgba(238, 238, 238, 0.64);
+	backdrop-filter: var(--background-blur-backdrop-filter);
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	@include responsive {
+		margin-top: 1.75rem;
+		padding-top: 1.75rem;
+		padding-bottom: 1.75rem;
+	}
+	&__content {
+		@include page-container;
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&__logo {
+			display: none;
+			@include responsive('phone-mini') {
+				display: initial;
+			}
+			&_mobile {
+				@include responsive('phone-mini') {
+					display: none;
+				}
+			}
+		}
+		&__nav {
+			display: flex;
+			align-items: center;
+			grid-gap: var(--space-1);
+			&__cart {
+				padding: 0;
+				background: none;
+				position: relative;
+				&::after {
+					content: attr(data-quality);
+					height: 1rem;
+					min-width: 1rem;
+					position: absolute;
+					top: -0.5rem;
+					left: 50%;
+					border-radius: 2rem;
+					padding: 1px 5px;
+					font-size: 0.75rem;
+					color: var(--color-2);
+					background-color: var(--color-6);
+				}
+			}
+		}
+	}
+}

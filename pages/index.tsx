@@ -1,3 +1,4 @@
+import Layout from 'components/Layout/Layout'
 import PruductCard from 'components/page/PruductCard/PruductCard'
 import Button from 'components/ui/Button/Button'
 import { getHomeData } from 'modules/getStaticProps/getHomeData'
@@ -7,25 +8,27 @@ import s from '../styles/pages/Home.module.scss'
 
 const Home = ({ products }: HomeProps) => {
 	return (
-		<main>
-			<section className={s.home__products__hero}></section>
-			<section className={s.home__products}>
-				<div>
+		<Layout title="Amiibo Store">
+			<main>
+				<section className={s.home__products__hero}></section>
+				<section className={s.home__products} id="products">
 					<div>
-						<h2></h2>
-						<p></p>
+						<div>
+							<h2></h2>
+							<p></p>
+						</div>
 					</div>
-				</div>
-				<ul className={s.home__products__list}>
-					{products.map(product => (
-						<PruductCard key={product.id} product={product} />
-					))}
-				</ul>
-				<div>
-					<Button>Load more</Button>
-				</div>
-			</section>
-		</main>
+					<ul className={s.home__products__list}>
+						{products.map(product => (
+							<PruductCard key={product.id} product={product} />
+						))}
+					</ul>
+					<div className={s.home__products__load}>
+						<Button buttonType="secondary">Load more</Button>
+					</div>
+				</section>
+			</main>
+		</Layout>
 	)
 }
 

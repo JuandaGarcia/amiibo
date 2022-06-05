@@ -11,7 +11,7 @@ import {
 import { toast } from 'react-hot-toast'
 
 const useCart = () => {
-	const { products, total } = useSelector(selectCart)
+	const { products, total, totalQuality } = useSelector(selectCart)
 	const dispatch = useDispatch()
 
 	const addToCart = (product: Product, notification?: boolean) => {
@@ -34,6 +34,7 @@ const useCart = () => {
 	return {
 		products,
 		total,
+		totalQuality,
 		addToCart,
 		deleteProduct,
 		reomveFromCart,

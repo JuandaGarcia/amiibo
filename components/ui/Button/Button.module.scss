@@ -16,10 +16,6 @@
 		cursor: not-allowed;
 		transform: none !important;
 	}
-	&:focus-visible {
-		outline: none;
-		box-shadow: 0 0 0 3px rgba(84, 102, 249, 0.5);
-	}
 }
 
 .button_primary {
@@ -27,6 +23,6 @@
 	@include button;
 }
 .button_secondary {
-	background-color: var(--color-5);
+	background-color: var(--color-2);
 	@include button;
 }

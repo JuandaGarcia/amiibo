@@ -46,7 +46,9 @@ const PruductCard = ({ product }: Props) => {
 							<span className={s.product_card__content__info__item__price}>
 								Price
 							</span>
-							<span className={s.product_card__content__info__item__text}>
+							<span
+								className={s.product_card__content__info__item__price_number}
+							>
 								<RiMoneyDollarCircleFill color="var(--color-1)" size={25} />
 								{price}
 							</span>

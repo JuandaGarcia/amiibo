@@ -1,15 +1,25 @@
+@import '../mixins/mixins';
+@import '../mixins/responsive';
+
 .home {
 	&__products {
-		margin: 0 auto;
-		padding: var(--space-3);
-		max-width: var(--page-max-width);
+		@include page-container;
 		&__list {
 			display: grid;
 			grid-gap: var(--space-1);
-			grid-template-columns: repeat(auto-fill, minmax(20.625rem, 1fr));
+			grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr));
 			margin: 0;
 			padding: 0;
 			list-style: none;
+			@include responsive('phone-mini') {
+				grid-template-columns: repeat(auto-fill, minmax(20.625rem, 1fr));
+			}
+		}
+		&__load {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding-top: var(--space-1);
 		}
 	}
 }
