@@ -18,9 +18,17 @@
 		display: grid;
 		grid-gap: var(--space-1);
 		&__item {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: 0;
 			&__text {
+				font-weight: 500;
+				color: var(--color-7);
 			}
 			&__price {
+				font-weight: 400;
+				color: var(--color-8);
 			}
 		}
 		&__button {

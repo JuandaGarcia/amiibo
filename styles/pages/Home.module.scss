@@ -2,8 +2,62 @@
 @import '../mixins/responsive';
 
 .home {
+	&__hero {
+		@include page-container;
+		display: grid;
+		gap: var(--space-5);
+		min-height: calc(100vh - calc(var(--header-height) * 2));
+		@include responsive {
+			grid-template-columns: 1fr 1fr;
+		}
+		&__text {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			&__welcome {
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 150%;
+				text-transform: uppercase;
+				color: var(--color-9);
+				margin: 0;
+			}
+			&__title {
+				font-weight: 400;
+				font-size: var(--font-size-2);
+				line-height: 58px;
+				margin: 24px 0;
+				color: var(--color-7);
+			}
+			&__message {
+				font-weight: 400;
+				font-size: 22px;
+				line-height: 150%;
+				color: var(--color-8);
+				margin: 0;
+				margin-bottom: var(--space-4);
+			}
+		}
+		&__image {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			& > span {
+				z-index: 1;
+			}
+			&__blur {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
 	&__products {
 		@include page-container;
+		padding-top: var(--header-height) !important;
 		&__list {
 			display: grid;
 			grid-gap: var(--space-1);

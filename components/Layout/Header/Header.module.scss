@@ -11,7 +11,7 @@
 	backdrop-filter: var(--background-blur-backdrop-filter);
 	position: sticky;
 	top: 0;
-	z-index: 1;
+	z-index: 2;
 	@include responsive {
 		margin-top: 1.75rem;
 		padding-top: 1.75rem;

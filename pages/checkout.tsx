@@ -32,9 +32,15 @@ const Checkout = () => {
 					)}
 				</section>
 				<section className={s.checkout__section}>
-					<p>
-						<span>Total ({totalQuality} Products):</span>
-						<span>${total}</span>
+					<p className={s.checkout__section__item}>
+						<span className={s.checkout__section__item__text}>
+							Total ({totalQuality} Products):
+						</span>
+						<span className={s.checkout__section__item__price}>${total}</span>
+					</p>
+					<p className={s.checkout__section__item}>
+						<span className={s.checkout__section__item__text}>Tax:</span>
+						<span className={s.checkout__section__item__price}>$0</span>
 					</p>
 					<Button
 						className={s.checkout__section__button}
