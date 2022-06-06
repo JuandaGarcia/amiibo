@@ -1,3 +1,5 @@
+@import './mixins/responsive';
+
 html,
 body {
 	padding: 0;
@@ -14,6 +16,7 @@ body {
 	--space-2: 0.75rem;
 	--space-3: 4rem;
 	--space-4: 2rem;
+	--space-5: 3.5rem;
 	--radius-1: 0.5rem;
 	--btn-height: 2.5rem;
 	--page-max-width: calc(1392px + calc(var(--space-3) * 2));
@@ -31,6 +34,12 @@ body {
 	--background-blur-backdrop-filter: blur(12px);
 	/* Fonts */
 	--font-size-1: 0.75rem;
+	--font-size-2: 3rem;
+	/* Responsive values */
+	--header-height: 5.8125rem;
+	@include responsive {
+		--header-height: 7.6875rem;
+	}
 }
 
 ::selection {

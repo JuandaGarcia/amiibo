@@ -15,6 +15,7 @@ type Props = {
 	type?: 'side' | 'center'
 	subModal?: boolean
 	disableCloseOnEsc?: boolean
+	className?: string
 }
 
 const Modal = ({
@@ -25,6 +26,7 @@ const Modal = ({
 	type,
 	subModal,
 	disableCloseOnEsc,
+	className,
 }: PropsWithChildren<Props>) => {
 	const modalRef = useRef<HTMLDivElement>(null)
 
@@ -97,7 +99,7 @@ const Modal = ({
 				<div
 					className={`${s.modal__content__space} ${
 						type === 'side' && s.side_space
-					}`}
+					} ${className}`}
 				>
 					{children}
 				</div>

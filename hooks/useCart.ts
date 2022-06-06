@@ -23,12 +23,14 @@ const useCart = () => {
 	const deleteProduct = (product: Product) => dispatch(delete_product(product))
 
 	const pay = () => {
-		dispatch(reset_cart())
-		confetti({
-			particleCount: 100,
-			spread: 70,
-			origin: { y: 0.6 },
-		})
+		if (totalQuality > 0) {
+			dispatch(reset_cart())
+			confetti({
+				particleCount: 100,
+				spread: 70,
+				origin: { y: 0.6 },
+			})
+		}
 	}
 
 	return {

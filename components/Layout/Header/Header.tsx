@@ -1,4 +1,4 @@
-import CartItem from 'components/page/CartItem/CartItem'
+import ProductsList from 'components/page/ProductsList/ProductsList'
 import Button from 'components/ui/Button/Button'
 import Modal from 'components/ui/Modal/Modal'
 import useCart from 'hooks/useCart'
@@ -44,25 +44,33 @@ const Header = () => {
 				</div>
 			</header>
 			{openCart && (
-				<Modal title="Cart" type="side" close={setOpenCart}>
-					<ul className={s.header__cart__content}>
-						{products.map(product => (
-							<CartItem key={product.id} product={product}></CartItem>
-						))}
-					</ul>
+				<Modal
+					title="Cart"
+					type="side"
+					close={setOpenCart}
+					className={s.header__cart}
+				>
+					<ProductsList />
 					{products.length > 0 ? (
-						<>
-							<div className={s.header__cart__total}>
-								<h2 className={s.header__cart__total__text}>Total:</h2>
-								<span className={s.header__cart__total__price}>${total}</span>
+						<div className={s.header__cart__total_container}>
+							<div className={s.header__cart__total_container__total}>
+								<h2 className={s.header__cart__total_container__total__text}>
+									Total:
+								</h2>
+								<span className={s.header__cart__total_container__total__price}>
+									${total}
+								</span>
 							</div>
-							<Button href="/checkout" className={s.header__cart__button}>
+							<Button
+								href="/checkout"
+								className={s.header__cart__total_container__button}
+							>
 								Go to Checkout
 							</Button>
-						</>
+						</div>
 					) : (
 						<div className={s.header__cart__message}>
-							<p className={s.header__cart__total__price}>
+							<p className={s.header__cart__total_container__total__price}>
 								You still have no products in the cart.
 							</p>
 							<Button href="/#products" onClick={() => setOpenCart(false)}>

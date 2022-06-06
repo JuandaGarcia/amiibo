@@ -60,27 +60,28 @@
 		}
 	}
 	&__cart {
-		&__content {
-			display: grid;
-			margin: 0;
-			padding: 0;
-			list-style: none;
-		}
-		&__total {
-			display: flex;
-			align-items: center;
-			justify-content: space-between;
-			&__text {
-				font-weight: 500;
-				color: var(--color-7);
+		padding-bottom: 0;
+		&__total_container {
+			position: sticky;
+			bottom: 0;
+			background: var(--color-2);
+			padding-bottom: var(--space-4);
+			&__total {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				&__text {
+					font-weight: 500;
+					color: var(--color-7);
+				}
+				&__price {
+					font-weight: 400;
+					color: var(--color-8);
+				}
 			}
-			&__price {
-				font-weight: 400;
-				color: var(--color-8);
+			&__button {
+				width: 100%;
 			}
-		}
-		&__button {
-			width: 100%;
 		}
 		&__message {
 			display: flex;
