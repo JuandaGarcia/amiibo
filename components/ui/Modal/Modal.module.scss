@@ -1,2 +1,126 @@
+@import '../../../styles/mixins/responsive';
+
 .modal {
+	$modal_max_width: 32rem;
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	z-index: 200;
+	@include responsive {
+		height: 100vh;
+		align-items: center;
+		bottom: initial;
+	}
+	&__content {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: $modal_max_width;
+		background-color: var(--color-2);
+		border-radius: var(--radius-1);
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		position: relative;
+		z-index: 5;
+		animation: modal 0.2s;
+		max-height: 95vh;
+		&.side {
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			border-radius: 0;
+			animation: modal-side 0.2s;
+			max-height: 100vh;
+			overflow-y: scroll;
+			@include responsive('custom', $modal_max_width) {
+				border-bottom-left-radius: var(--radius-1);
+				border-top-left-radius: var(--radius-1);
+			}
+		}
+		@include responsive {
+			align-items: center;
+			bottom: initial;
+			border-radius: var(--radius-1);
+		}
+		&__header {
+			width: 100%;
+			display: flex;
+			justify-content: space-between;
+			padding: var(--space-4);
+			position: sticky;
+			top: 0;
+			background-color: var(--color-2);
+			z-index: 1;
+			border-radius: inherit;
+			&__title {
+				margin: 0;
+				color: var(--color-7);
+				&:focus {
+					outline: none;
+				}
+			}
+			&__exit {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 2rem;
+				width: 2rem;
+				margin-left: var(--space-4);
+				border-radius: 50%;
+				background-color: var(--color-5);
+			}
+		}
+		&__space {
+			width: 100%;
+			padding: var(--space-4);
+			padding-top: 0;
+			overflow-y: scroll;
+			&::-webkit-scrollbar {
+				width: 0px;
+				background: transparent;
+			}
+			&.side_space {
+				overflow-y: initial;
+			}
+		}
+	}
+	&__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		right: 0;
+		background: rgba(0, 0, 0, 0.5);
+		@include responsive {
+			backdrop-filter: var(--background-blur-backdrop-filter);
+		}
+	}
+}
+
+@keyframes modal {
+	from {
+		opacity: 0;
+		transform: translateY(5rem);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@keyframes modal-side {
+	from {
+		opacity: 0;
+		transform: translateX(5rem);
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
 }

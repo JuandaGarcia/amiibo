@@ -8,3 +8,7 @@ export type Product = {
 	type: string
 	price: number
 }
+
+export interface ProductCart extends Product {
+	quantity: number
+}

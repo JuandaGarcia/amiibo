@@ -18,7 +18,7 @@ const useCart = () => {
 		dispatch(add_to_cart(product))
 		notification && toast.success(`Added ${product.name}`)
 	}
-	const reomveFromCart = (product: Product) =>
+	const removeFromCart = (product: Product) =>
 		dispatch(remove_from_cart(product))
 	const deleteProduct = (product: Product) => dispatch(delete_product(product))
 
@@ -37,7 +37,7 @@ const useCart = () => {
 		totalQuality,
 		addToCart,
 		deleteProduct,
-		reomveFromCart,
+		removeFromCart,
 		pay,
 	}
 }

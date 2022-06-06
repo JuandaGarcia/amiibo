@@ -24,9 +24,13 @@ body {
 	--color-4: #000000;
 	--color-5: #eeeeee;
 	--color-6: #ff4242;
+	--color-7: #111111;
+	--color-8: #555555;
 	--background-blur-color: rgba(40, 26, 23, 0.64);
 	/* Properties */
 	--background-blur-backdrop-filter: blur(12px);
+	/* Fonts */
+	--font-size-1: 0.75rem;
 }
 
 ::selection {
@@ -39,7 +43,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: var(--color-4);
+	background: var(--color-7);
 }
 
 * {

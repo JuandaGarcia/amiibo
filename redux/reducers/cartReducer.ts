@@ -1,11 +1,8 @@
-import { Product } from 'utils/types/Product'
+import { Product, ProductCart } from 'utils/types/Product'
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { RootState } from 'redux/store'
 import { local_storage_key } from 'utils/constants/app'
 
-interface ProductCart extends Product {
-	quantity: number
-}
 type CartState = {
 	products: ProductCart[]
 	totalQuality: number
@@ -18,18 +15,14 @@ const initialState: CartState = {
 }
 
 const getInitialState = () => {
-	if (typeof window !== 'undefined') {
-		const localStorageCart = localStorage.getItem(local_storage_key)
-		if (localStorageCart) {
-			try {
-				const cart = JSON.parse(localStorageCart)
-				return cart as CartState
-			} catch (error) {
-				localStorage.clear()
-				console.error(error)
-				return initialState
-			}
-		} else {
+	const localStorageCart = localStorage.getItem(local_storage_key)
+	if (localStorageCart) {
+		try {
+			const cart = JSON.parse(localStorageCart)
+			return cart as CartState
+		} catch (error) {
+			localStorage.clear()
+			console.error(error)
 			return initialState
 		}
 	} else {
@@ -90,7 +83,7 @@ const getTotal = (array: ProductCart[]) =>
 
 export const { reducer: cartReducer, actions } = createSlice({
 	name: 'cart',
-	initialState: getInitialState(),
+	initialState,
 	reducers: {
 		add_to_cart: (state, { payload }: PayloadAction<Product>) => {
 			const index = state.products.findIndex(item => item.id === payload.id)

@@ -1,10 +1,14 @@
-@mixin responsive($breakpoint: 'desktop') {
+@mixin responsive($breakpoint: 'desktop', $custom: 1200px) {
 	@if $breakpoint == phone-mini {
 		@media only screen and (min-width: 281px) {
 			@content;
 		}
 	} @else if $breakpoint == desktop {
 		@media only screen and (min-width: 992px) {
+			@content;
+		}
+	} @else if $breakpoint == custom {
+		@media only screen and (min-width: $custom) {
 			@content;
 		}
 	}

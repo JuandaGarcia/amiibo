@@ -40,7 +40,7 @@
 				gap: var(--space-2);
 				&__type {
 					font-weight: 500;
-					font-size: 0.75rem;
+					font-size: var(--font-size-1);
 					color: var(--color-1);
 					text-transform: uppercase;
 				}
@@ -55,7 +55,7 @@
 					text-align: right;
 				}
 				&__price {
-					font-size: 0.75rem;
+					font-size: var(--font-size-1);
 					text-align: right;
 					color: var(--color-2);
 					text-transform: uppercase;
@@ -67,6 +67,7 @@
 		}
 		& > span {
 			overflow: initial !important;
+			user-select: none;
 		}
 	}
 	&__button {
