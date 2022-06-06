@@ -5,10 +5,15 @@ import { getHomeData } from 'modules/getStaticProps/getHomeData'
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Person from 'public/person.png'
+import { useState } from 'react'
+import { products_per_page } from 'utils/constants/app'
 import { HomeProps } from 'utils/types/PagesProps'
 import s from '../styles/pages/Home.module.scss'
 
 const Home = ({ products }: HomeProps) => {
+	const [page, setPage] = useState(1)
+	const productsToShow = [...products].slice(0, products_per_page * page)
+
 	return (
 		<Layout title="Amiibo Store">
 			<main>
@@ -63,10 +68,17 @@ const Home = ({ products }: HomeProps) => {
 						Explore the entirety of this amiibo collection.
 					</p>
 					<ul className={s.home__products__list}>
-						{products.map(product => (
+						{productsToShow.map(product => (
 							<PruductCard key={product.id} product={product} />
 						))}
 					</ul>
+					{productsToShow.length !== products.length && (
+						<div className={s.home__products__load}>
+							<Button buttonType="secondary" onClick={() => setPage(page + 1)}>
+								Load more
+							</Button>
+						</div>
+					)}
 				</section>
 			</main>
 		</Layout>
