@@ -1,2 +1,25 @@
+@import '../../../styles/mixins/mixins';
+@import '../../../styles/mixins/responsive';
+
 .footer {
+	@include page-container;
+	margin-top: var(--space-4);
+	padding-top: 1.125rem;
+	padding-bottom: 1.125rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	@include responsive {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	@include responsive {
+		padding-top: 1.75rem;
+		padding-bottom: 1.75rem;
+	}
+	&__text {
+		font-weight: 400;
+		color: var(--color-9);
+	}
 }

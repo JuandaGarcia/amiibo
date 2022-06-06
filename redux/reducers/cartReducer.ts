@@ -19,7 +19,18 @@ const getInitialState = () => {
 	if (localStorageCart) {
 		try {
 			const cart = JSON.parse(localStorageCart)
-			return cart as CartState
+			if (
+				cart.products &&
+				cart.total &&
+				cart.totalQuality &&
+				typeof cart.totalQuality === 'number' &&
+				typeof cart.total === 'number' &&
+				typeof cart.products === 'object'
+			) {
+				return cart as CartState
+			} else {
+				return initialState
+			}
 		} catch (error) {
 			localStorage.clear()
 			console.error(error)
@@ -30,9 +41,12 @@ const getInitialState = () => {
 	}
 }
 
-const saveInLoalStorage = ({ products, total }: CartState) => {
+const saveInLoalStorage = ({ products, total, totalQuality }: CartState) => {
 	try {
-		localStorage.setItem(local_storage_key, JSON.stringify({ products, total }))
+		localStorage.setItem(
+			local_storage_key,
+			JSON.stringify({ products, total, totalQuality })
+		)
 	} catch (error) {
 		console.error(error)
 	}
@@ -85,6 +99,13 @@ export const { reducer: cartReducer, actions } = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
+		get_initial_state: state => {
+			const data = getInitialState()
+
+			state.products = data.products
+			state.total = data.total
+			state.totalQuality = data.totalQuality
+		},
 		add_to_cart: (state, { payload }: PayloadAction<Product>) => {
 			const index = state.products.findIndex(item => item.id === payload.id)
 			if (index !== -1) {
@@ -132,8 +153,13 @@ export const { reducer: cartReducer, actions } = createSlice({
 	},
 })
 
-export const { add_to_cart, remove_from_cart, delete_product, reset_cart } =
-	actions
+export const {
+	add_to_cart,
+	remove_from_cart,
+	delete_product,
+	reset_cart,
+	get_initial_state,
+} = actions
 export const selectCart = ({ cart }: RootState) => cart
 
 export default cartReducer

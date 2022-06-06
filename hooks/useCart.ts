@@ -7,8 +7,10 @@ import {
 	remove_from_cart,
 	delete_product,
 	reset_cart,
+	get_initial_state,
 } from 'redux/reducers/cartReducer'
 import { toast } from 'react-hot-toast'
+import { useCallback } from 'react'
 
 const useCart = () => {
 	const { products, total, totalQuality } = useSelector(selectCart)
@@ -21,6 +23,11 @@ const useCart = () => {
 	const removeFromCart = (product: Product) =>
 		dispatch(remove_from_cart(product))
 	const deleteProduct = (product: Product) => dispatch(delete_product(product))
+
+	const getLocalStorageData = useCallback(
+		() => dispatch(get_initial_state()),
+		[dispatch]
+	)
 
 	const pay = () => {
 		if (totalQuality > 0) {
@@ -40,6 +47,7 @@ const useCart = () => {
 		addToCart,
 		deleteProduct,
 		removeFromCart,
+		getLocalStorageData,
 		pay,
 	}
 }

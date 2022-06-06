@@ -20,6 +20,7 @@ const Checkout = () => {
 		<Layout title="Checkout">
 			<main className={s.checkout}>
 				<section className={s.checkout__section}>
+					<h1 className={s.checkout__section__title}>Checkout</h1>
 					{totalQuality > 0 ? (
 						<ProductsList />
 					) : (

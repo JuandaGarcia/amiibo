@@ -9,14 +9,28 @@
 	margin-bottom: var(--space-5);
 	@include responsive {
 		grid-template-columns: 2fr 1fr;
+		min-height: calc(100vh - var(--header-height));
 	}
 	&__section {
 		border-radius: var(--radius-1);
 		background-color: var(--color-2);
-		padding: var(--space-5);
+		padding: var(--space-4);
 		height: max-content;
 		display: grid;
 		grid-gap: var(--space-1);
+		@include responsive {
+			padding: var(--space-5);
+		}
+		&__title {
+			font-weight: 400;
+			font-size: var(--font-size-2);
+			color: var(--color-7);
+			margin: 0;
+			text-align: center;
+			@include responsive {
+				text-align: initial;
+			}
+		}
 		&__item {
 			display: flex;
 			align-items: center;
@@ -54,12 +68,12 @@
 
 .success {
 	@include page-container;
-	margin-top: var(--space-5);
 	margin-bottom: var(--space-5);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	min-height: calc(100vh - var(--header-height));
 	&__text {
 		text-align: center;
 		font-weight: 400;

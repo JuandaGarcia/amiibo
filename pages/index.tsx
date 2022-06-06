@@ -4,6 +4,7 @@ import Button from 'components/ui/Button/Button'
 import { getHomeData } from 'modules/getStaticProps/getHomeData'
 import type { GetStaticProps } from 'next'
 import Image from 'next/image'
+import Person from 'public/person.png'
 import { HomeProps } from 'utils/types/PagesProps'
 import s from '../styles/pages/Home.module.scss'
 
@@ -22,6 +23,23 @@ const Home = ({ products }: HomeProps) => {
 							compatible games.
 						</p>
 						<Button href="/#products">Explore Products</Button>
+						<div className={s.home__hero__text__testimonial}>
+							<Image
+								src={Person}
+								alt="Amiibo Store"
+								quality={100}
+								objectFit="contain"
+								className={s.home__hero__text__testimonial__img}
+							/>
+							<div>
+								<p className={s.home__hero__text__testimonial__title}>
+									Jess Young
+								</p>
+								<p className={s.home__hero__text__testimonial__text}>
+									“I love shopping in this store.”
+								</p>
+							</div>
+						</div>
 					</div>
 					<div className={s.home__hero__image}>
 						<Image
@@ -40,20 +58,15 @@ const Home = ({ products }: HomeProps) => {
 					</div>
 				</section>
 				<section className={s.home__products} id="products">
-					<div>
-						<div>
-							<h2></h2>
-							<p></p>
-						</div>
-					</div>
+					<h2 className={s.home__products__title}>Products</h2>
+					<p className={s.home__products__text}>
+						Explore the entirety of this amiibo collection.
+					</p>
 					<ul className={s.home__products__list}>
 						{products.map(product => (
 							<PruductCard key={product.id} product={product} />
 						))}
 					</ul>
-					<div className={s.home__products__load}>
-						<Button buttonType="secondary">Load more</Button>
-					</div>
 				</section>
 			</main>
 		</Layout>

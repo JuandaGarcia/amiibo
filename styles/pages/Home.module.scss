@@ -14,6 +14,10 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
+			margin-top: var(--space-4);
+			@include responsive {
+				margin-top: 0;
+			}
 			&__welcome {
 				font-weight: 500;
 				font-size: 14px;
@@ -37,6 +41,27 @@
 				margin: 0;
 				margin-bottom: var(--space-4);
 			}
+			&__testimonial {
+				display: flex;
+				align-items: center;
+				flex-wrap: wrap;
+				gap: 24px;
+				padding-top: 2.5rem;
+				&__img {
+					border-radius: var(--radius-1);
+				}
+				&__title {
+					font-weight: 500;
+					color: var(--color-7);
+					margin: 0;
+					margin-bottom: 12px;
+				}
+				&__text {
+					font-weight: 400;
+					margin: 0;
+					color: var(--color-8);
+				}
+			}
 		}
 		&__image {
 			position: relative;
@@ -58,6 +83,19 @@
 	&__products {
 		@include page-container;
 		padding-top: var(--header-height) !important;
+		&__title {
+			font-weight: 500;
+			font-size: 22px;
+			color: var(--color-7);
+			margin: 0;
+			margin-bottom: 1rem;
+		}
+		&__text {
+			font-weight: 400;
+			color: var(--color-8);
+			margin: 0;
+			margin-bottom: var(--space-5);
+		}
 		&__list {
 			display: grid;
 			grid-gap: var(--space-1);
