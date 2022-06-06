@@ -1,3 +1,35 @@
+# Amiibo Store
+
+Proyecto disponible en: https://amiibo.vercel.app/
+
+![Ipad](https://amiibo.vercel.app/ipad.png)
+
+## Descripción del proyecto
+
+Proyecto creado con React, Redux y Nextjs, no se utilizo React router ya que utilicé utilice Nextjs para hacer Static Site Generation con el fin de reducir los tiempos de carga de los datos del lado del cliente y de paso aprovechar el sistema de enrutamiento basado en carpetas que trae Nextjs. Datos para tener en cuenta: el archivo root es el `pages/_app.tsx`, el consumo de la API se hace en el archivo `modules/getStaticProps/getHomeData.ts`
+
+## Instrucciones de ejecución
+
+### Modo Producción (Mejor rendimiento)
+
+```bash
+# 1
+npm install
+# 2
+npm run build
+# 3
+npm start
+```
+
+### Modo Desarrollo
+
+```bash
+# 1
+npm install
+# 2
+npm run dev
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
